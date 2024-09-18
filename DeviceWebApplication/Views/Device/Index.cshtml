@@ -1,0 +1,170 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+    ViewData["Title"] = "Device";
+
+}
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+    span {
+        font-size: 16px;
+        padding: 4px;
+        cursor:pointer;
+    }
+    </style>
+
+<div class="container">
+<div class="" id="device_list">
+    <div class="card card-custom gutter-b example example-compact">
+        <div class="card-header flex-wrap py-3">
+            <div class="card-title">
+                <h3 class="card-label">
+                    Product List
+                </h3>
+            </div>
+            <div class="card-toolbar">
+                    <button type="reset" class="btn btn-primary mr-2" onclick="addexp()" id="Device_add"><i class="flaticon2-add-1"></i>Add Product</button>
+               </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="table-responsive" id="Device_list">
+                        <table class="table table-hover table-responsive">
+                            <thead>
+                            <th>SN</th>
+                            <th>Product</th>
+                            <th>Price</th>
+                            <th>Description </th>
+                            <th>Created</th>
+                            <th>Action</th>
+
+                            </thead>
+                            <tbody id="expbody" class="expbody">
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+    <div class="container mt-5" id="deviceform" style="display:none">
+        <h2>Add New Device</h2>
+        <form id="deviceForm" method="post">
+            <div class="mb-3">
+                <input type="hidden" id="deviceId" name="product" class="form-control" placeholder="Enter Product Name" required>
+            </div>
+            <div class="mb-3">
+            <label for="product" class="form-label">Product</label>
+            <input type="text" id="product" name="product" class="form-control" placeholder="Enter Product Name" required>
+            </div>
+    <div class="mb-3">
+        <label for="price" class="form-label">Price</label>
+                <input type="number" id="price" name="price" class="form-control" placeholder="Enter Price " required>
+            </div>
+     <div class="mb-3">
+        <label for="description" class="form-label">Description</label>
+        <textarea id="description" name="description" class="form-control" rows="4" placeholder="Enter Product Description" required></textarea>
+    </div>
+
+    <div class="mb-3">
+        <input type="hidden" id="created" disabled name="created" class="form-control" required>
+    </div>
+
+    <div class="d-grid gap-2">
+        <div class="row">
+           <div class="col-md-12">
+
+                    <button type="submit" id="save" class="btn btn-primary">Save Device</button>
+        <button type="reset" id="cancel" onclick="closedevice()" class="btn btn-danger">Cancel </button>
+        <button type="button" id="update" onclick="updaterecord()" style="display:none" class="btn btn-warning">Update </button>
+           </div>
+        </div>
+    </div>
+    </form>
+</div>
+
+
+    <div class="card card-custom gutter-b" id="device_view" style="display:none">
+        <div class="card-header">
+            <div class="form-group row mb-5">
+                <h2 class="card-title  font-weight-bolder font-size-h2">Product View</h2>
+            </div>
+            <div class="card-toolbar">
+                <div class="example-tools justify-content-right">
+@*                     <button type="reset" class="btn btn-warning mr-2" id="template_view_edit"><i class="la la-edit"></i>Edit</button>
+                    *@ <button type="reset" class="btn btn-danger" onclick="hideview()" id="template_view_back"><i class="fas fa-arrow-left"></i> Back</button>
+@*                     <button type="reset" class="btn btn-light-primary mr-2" onclick="hideview()" id="template_view_back"><i class="la la-long-arrow-left"></i>Back</button>
+ *@                </div>
+            </div>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="col-xl-12">
+                        <div class="my-5">
+                            <div class="form-group row">
+                                <label class="col-4 text-right">Product :</label>
+                                <div class="col-8">
+                                    <span id="device_product"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="col-xl-12">
+                        <div class="my-5">
+                            <div class="form-group row">
+                                <label class="col-4 text-right">Price :</label>
+                                <div class="col-8">
+                                    <span id="device_price"></span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xl-12">
+                    <div class="my-5">
+                        <div class="form-group row table-responsive">
+                            <label class="col-2 text-right">Descryption :</label>
+                            <div class="col-10">
+                                <span id="device_desc"></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+
+
+
+</div>
+
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+
+<script src="~/js/Device.js"></script>
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/js/site.js"></script>
+
+
+
+
+
+

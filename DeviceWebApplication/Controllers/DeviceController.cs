@@ -35,11 +35,8 @@ namespace DeviceWebApplication.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllProducts()
         {
-           // using (var connection = new SqlConnection(_connectionString))
-  //          {
                 try
                 {
-                //var _connectionString = "Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password=myPassword;TrustServerCertificate=True;";
 
                 var connection = new SqlConnection(_connectionString);
 
@@ -64,11 +61,8 @@ namespace DeviceWebApplication.Controllers
         [HttpGet]
         public async Task<IActionResult> getDeviceById(int? id)
         {
-           // using (var connection = new SqlConnection(_connectionString))
-  //          {
                 try
                 {
-                //var _connectionString = "Server=myServerAddress;Database=myDataBase;User Id=myUsername;Password=myPassword;TrustServerCertificate=True;";
 
                 var connection = new SqlConnection(_connectionString);
 
@@ -78,16 +72,13 @@ namespace DeviceWebApplication.Controllers
 
                     if (products == null || !products.Any())
                     {
-                        // No data found
                         return Json(new { error = "No products found" });
                     }
 
-                    // Return data as JSON
                     return Json(products);
                 }
                 catch (Exception ex)
                 {
-                    // Return error details for debugging
                     return Json(new { error = ex.Message });
                 }
             }

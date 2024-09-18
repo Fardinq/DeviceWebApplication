@@ -11,11 +11,9 @@
 
             tableBody.empty(); // Clear the table body first
 
-            // Check if response.data exists and is an array
             if (response && response.length > 0) {
-                console.log(response);  // Should print the correct data
+                console.log(response);  
 
-                // Loop through the data using a valid JavaScript `for` loop
                 for (var i = 0; i < response.length; i++) {
 
                     row += '<tr>';
@@ -27,10 +25,8 @@
                     //row += '<td>' + response[i].amount + '</td>';
                     row += '<td class="action-icons">';
 
-                    // Add Edit icon (adjust href and functionality based on your implementation)
                     row += '<span><a  onclick="editRecord(' + response[i].id + ')"><i class="fas fa-edit"></i></a></span> ';
 
-                    // Add Delete icon (adjust href and functionality based on your implementation)
                     row += '<span><a href="#" onclick="deleteRecord(' + response[i].id + ')"><i class="fas fa-trash"></i></a></span>';
 
                     row += '<span><a href="#" onclick="viewRecord(' + response[i].id + ')"><i class="fas fa-eye"></i></a></span>';
@@ -39,12 +35,10 @@
 
                     row += '</tr>';
 
-                    // Append the row to the table body
                     $(".expbody").html(row);
                 }
             } else {
                 var noDataRow = '<tr><td colspan="6" class="text-center">No Data Available</td></tr>';
-               // tableBody.append(noDataRow);
                 $(".expbody").html(noDataRow);
 
             }
@@ -57,7 +51,7 @@
     }
    
     $('#deviceForm').submit(function (e) {
-        e.preventDefault(); // Prevent default form submission
+        e.preventDefault(); 
         var formData = {
             product: $('#product').val(),
             description: $('#description').val(),
@@ -78,7 +72,7 @@
                 //  alert("Device added successfully!");
                 getall();
                 $("#deviceform").hide();
-                $('#deviceForm')[0].reset(); // Reset all fields in the form
+                $('#deviceForm')[0].reset(); 
                 $("#device_list").show();
 
             },
@@ -107,13 +101,10 @@ function getall() {
             var row = '';
             var tableBody = $("#expbody tbody");
 
-            tableBody.empty(); // Clear the table body first
-
-            // Check if response.data exists and is an array
+            tableBody.empty(); 
             if (response && response.length > 0) {
-                console.log(response);  // Should print the correct data
+                console.log(response);  
 
-                // Loop through the data using a valid JavaScript `for` loop
                 for (var i = 0; i < response.length; i++) {
 
                     row += '<tr>';
@@ -139,7 +130,6 @@ function getall() {
                 }
             } else {
                 var noDataRow = '<tr><td colspan="6" class="text-center">No Data Available</td></tr>';
-               // tableBody.append(noDataRow);
                 $(".expbody").html(noDataRow);
 
             }
@@ -151,7 +141,6 @@ function getall() {
                 text: "Something went wrong!",
                 footer: '<a href="#">Why do I have this issue?</a>'
             });
-            // alert("Data not found");
         }
     });
 
@@ -179,11 +168,11 @@ function updaterecord() {
                 text: "Data Updated successfully!",
                 icon: "success"
             });
-            //  alert("Device updated successfully!");
-           // getall();
             $("#deviceform").hide();
-            $('#deviceForm')[0].reset(); // Reset all fields in the form
+            $('#deviceForm')[0].reset(); 
             $("#device_list").show();
+            getall();
+
             window.location.reload
         },
         error: function () {
